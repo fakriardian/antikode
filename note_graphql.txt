@@ -1,0 +1,191 @@
+# mutation createBrand {
+# createBrand(
+#     name:"proshop",
+#   	logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UNIQLO_logo.svg/1029px-UNIQLO_logo.svg.png"
+#   	banner: "https://cdn1-production-images-kly.akamaized.net/6OI1_edskJsvJeBf_1_dkLUhyTw=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/4113684/original/006360100_1659673515-UNIQLO_2022_FALL_WINTER_COLLECTION.jpg"
+# ) 
+# 	{
+# 	    name
+# 	    logo
+#     banner
+# 	}
+# }
+
+# mutation updateBrand{
+#   updateBrand(
+#     id: "f4f532da-aeb3-11ed-b9f0-c945002fec12",
+#     name: "uniqlo2"
+#   )
+#   {
+#   	name,
+#   	logo,
+#     banner
+# 	}
+# }
+
+# mutation deleteBrand{
+#   deleteBrand(id: "4cf067b1-aeb7-11ed-b9f0-c945002fec12")
+# }
+
+# {
+#   brands{
+#     id
+#     name
+#     outlets{
+#       name
+#       address
+#     }
+#     products{
+#       name
+#     }
+#   }
+# }
+
+# {
+#   brand(id: "6a7bab60-aeaa-11ed-b9f0-c945002fec12"){
+#     name
+#   }
+# }
+
+
+# mutation createProduct{
+#   createProduct(    
+#     brand_id: "f4f532da-aeb3-11ed-b9f0-c945002fec12",
+#     name: "Sweater",
+#     picture: "https://cdn1-production-images-kly.akamaized.net/6OI1_edskJsvJeBf_1_dkLUhyTw=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/4113684/original/006360100_1659673515-UNIQLO_2022_FALL_WINTER_COLLECTION.jpg",
+#     price: 300000,
+#   ){
+#     brand{
+#       name
+#     }
+#     name
+#     picture
+#     price
+#   }
+# }
+
+
+# mutation updateProduct{
+#   updateProduct(
+#     id: "45ce7765-b102-11ed-8d76-013b23019b09",
+#     name: "kemeja"
+#     price: 150000
+#   )
+#   {
+#   	name,
+#   	price,
+#     brand{
+#       name
+#     }
+# 	}
+# }
+
+# mutation deleteProduct{
+#   deleteProduct(id: "d18f934c-b106-11ed-8d76-013b23019b09")
+# }
+
+# {
+#   products{
+#     id
+#     name
+#     price
+#     brand{
+#       id
+#       name
+#     }
+#   }
+# }
+
+# {
+#   product(id: "66608202-aed0-11ed-b9f0-c945002fec12"){
+#     name
+#     price
+#     brand{
+#       id
+#       name
+#     }
+#   }
+# }
+
+# {
+#   outlets{
+#     id
+#     name
+#     picture
+#     address
+#     latitude
+#     longitude
+#   }
+# }
+
+# mutation createOutlet{
+#   createOutlet(
+#   	brand_id: "f4f532da-aeb3-11ed-b9f0-c945002fec12"
+#     name: "Outlet GI"
+#     address: "Jl. Margonda Raya No.358, Kemiri Muka, Kecamatan Beji, Kota Depok, Jawa Barat 16424"
+#     picture: "https://foto.wartaekonomi.co.id/files/arsip_foto_2020_06_24/uniqlo_151129_small.jpg"
+#     latitude: -6.372630944880803
+#     longitude: 106.83508836770905  
+#   ){
+#   	name
+#     address
+#     picture
+#     latitude
+#     longitude
+#     brand{
+#       name
+#     }
+# 	}
+# }
+
+# mutation updateOutlet{
+#   updateOutlet(
+#     id: "6d44ed4d-b107-11ed-8d76-013b23019b09",
+#     name: "Outlet Grogol"
+#   )
+#   {
+#   	name,
+#   	address,
+#     latitude
+#     longitude
+# 	}
+# }
+
+# mutation deleteOutlet{
+#   deleteOutlet(id: "6d44ed4d-b107-11ed-8d76-013b23019b09")
+# }
+
+# {
+#   outlets{
+#     id
+#     name
+#     address
+#     latitude
+#     longitude
+#   }
+# }
+
+# {
+#   outlet(id: "6d44ed4d-b107-11ed-8d76-013b23019b09"){
+#     id
+#     name
+#     address
+#     latitude
+#     longitude
+#     brand{
+#       id
+#       name
+#     }
+#   }
+# }
+
+#testing with postman. file will be store in storage/public/uploads
+#curl --location 'http://localhost:8000/graphql' \
+#--header 'Accept-Encoding: gzip, deflate, br' \
+#--header 'Content-Type: application/json' \
+#--header 'Accept: application/json' \
+#--header 'Connection: keep-alive' \
+#--header 'Origin: chrome-extension://flnheeellpciglgpaodhkhmapeljopja' \
+#--form 'operations="{\"query\":\"mutation uploadBrand($file: Upload!) {\\n  uploadBrand(image: $file)\\n}\\n\",\"variables\":{}}"' \
+#--form 'map="{\"0\":[\"variables.file\"]}"' \
+#--form '0=@"/path/to/file"'
