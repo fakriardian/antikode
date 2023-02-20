@@ -31,6 +31,6 @@ $ php artisan serve
 $ go to http://localhost:8000/graphiql for testing graphql
 ```
 
-for graphql collection in [here](https://github.com/fakriardian/anticode/blob/main/note_graphql.txt)
+for graphql collection in [here](https://github.com/fakriardian/antikode/blob/main/note_graphql.txt)
 
-for test sql in [here](https://github.com/fakriardian/anticode/blob/main/sql_test.sql)
+for test sql in [here](https://github.com/fakriardian/antikode/blob/main/sql_test.sql)
